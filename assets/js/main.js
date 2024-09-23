@@ -192,7 +192,7 @@
   }, true );
 
   /**
-   * Scroll with ofset on links with a class name .scrollto
+   * Scrool with ofset on links with a class name .scrollto
    */
   on( 'click', '.scrollto', function ( e )
   {
@@ -277,17 +277,10 @@
    * Initiate portfolio lightbox 
    */
   const portfolioLightbox = GLightbox( {
-    selector: '.portfolio-lightbox'
+    selector: '.glightbox'
   } );
 
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox( {
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  } );
+
 
   /**
    * Portfolio details slider
