@@ -105,8 +105,8 @@
 
         <div id="port-container" class="row">
           <!-- Portfolio items will be appended here -->
-      </div>
-      
+        </div>
+
 
       </div>
     </section><!-- End Portfolio Section -->
@@ -156,11 +156,13 @@
       // Function to append HTML with lazy loading for portfolio items
       function appendPortfolioHtml ( filename, filter )
       {
+        const max_placeholder = 3;
+        const numm = Math.floor( Math.random() * max_placeholder ) + 1;
         var div = document.getElementById( 'port-container' );
         div.innerHTML += `
     <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
       <div class="portfolio-wrap">
-        <img data-src="${ filename }" class="lazyload img-fluid" alt="">
+        <img src="assets/img/portfolio\\placeholder\\placeholder${ numm }.jpg" data-src="${ filename }" class="lazyload img-fluid" alt="">
         <div class="portfolio-info">
           <h4></h4>
           <p></p>
