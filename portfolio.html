@@ -5,12 +5,14 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Swati Agarwal - Home</title>
+  <title>Swati Agarwal - Portfolio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/IMG_1968.PNG" type="image/png" rel="icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 
   <!-- Google Fonts -->
   <link
@@ -22,8 +24,9 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -103,7 +106,7 @@
           </div>
         </div>
 
-        <div id="port-container" class="row">
+        <div id="port-container" class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           <!-- Portfolio items will be appended here -->
         </div>
 
@@ -131,66 +134,67 @@
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
-    </div>
 
 
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+          class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> -->
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
 
-    <script>
+      <script>
 
-      // Function to append HTML with lazy loading for portfolio items
-      function appendPortfolioHtml ( filename, filter )
-      {
-        const max_placeholder = 3;
-        const numm = Math.floor( Math.random() * max_placeholder ) + 1;
-        var div = document.getElementById( 'port-container' );
-        div.innerHTML += `
+        // Function to append HTML with lazy loading for portfolio items
+        function appendPortfolioHtml ( filename, title, subtitle = "", filter )
+        {
+          const max_placeholder = 3;
+          const numm = Math.floor( Math.random() * max_placeholder ) + 1;
+          var div = document.getElementById( 'port-container' );
+          div.innerHTML += `
     <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
       <div class="portfolio-wrap">
-        <img src="assets/img/portfolio\\placeholder\\placeholder${ numm }.jpg" data-src="${ filename }" class="lazyload img-fluid" alt="">
+        <img src="assets/img/portfolio\\placeholder\\placeholder${numm}.jpg" data-src="${ filename }" class="lazyload img-fluid" alt="">
         <div class="portfolio-info">
           <h4></h4>
           <p></p>
           <div class="portfolio-links">
-            <a href="${ filename }" data-gallery="portfolioGallery" class="gightbox" title="">
+            <a href="${ filename }" data-gallery="${ filter }-gallery" class="glightbox" title="" previewlistener="true">
               <i class="bi bi-zoom-in"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>`;
-      }
+              </a>
+              </div>
+              </div>
+              </div>
+              </div>
+              `;
+        }
 
-      // Fetch JSON and dynamically create lazy-loaded portfolio items
-      fetch( 'file_data.json' )
-        .then( response => response.json() )
-        .then( data =>
-        {
-          data.forEach( item =>
+        // Fetch JSON and dynamically create lazy-loaded portfolio items
+        fetch( 'file_data.json' )
+          .then( response => response.json() )
+          .then( data =>
           {
-            // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
-            appendPortfolioHtml( item.filepath, item.tag );
-          } );
-        } )
-        .catch( error => console.error( 'Error loading the JSON file:', error ) );
+            data.forEach( item =>
+            {
+              // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
+              appendPortfolioHtml( item.filepath, item.title, item.subtitle, item.tag );
+            } );
+          } )
+          .catch( error => console.error( 'Error loading the JSON file:', error ) );
 
 
-    </script>
+      </script>
+    </div>
 
 </body>
 

@@ -13,7 +13,7 @@
   const normal = document.querySelectorAll( ".normal" );
 
   const mained = document.querySelector( ".mained" );
-  
+
 
   const parellel_text = document.querySelector( "parellax-name" );
 
@@ -21,13 +21,13 @@
 
   window.onload = () =>
   {
-    if ( window.innerWidth < 600 && mained != null)
+    if ( window.innerWidth < 600 && mained != null )
     {
       document.querySelector( ".parellax-name-mob" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
       document.querySelector( ".parellax-desc-mob" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
       document.getElementById( "header" ).style.height = `${ Math.max( window.innerWidth * 0.1, 48 ) }px`;
 
-    } else if(mained != null)
+    } else if ( mained != null )
     {
       document.querySelector( ".parellax-name" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
       document.querySelector( ".parellax-desc" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
@@ -37,12 +37,12 @@
 
   window.addEventListener( "resize", () =>
   {
-    if ( window.innerWidth < 600  && mained != null)
+    if ( window.innerWidth < 600 && mained != null )
     {
       document.querySelector( ".parellax-name-mob" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
       document.querySelector( ".parellax-desc-mob" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
       document.getElementById( "header" ).style.height = `${ Math.max( window.innerWidth * 0.1, 48 ) }px`;
-    } else if(mained != null)
+    } else if ( mained != null )
     {
       document.querySelector( ".parellax-name" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
       document.querySelector( ".parellax-desc" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
@@ -54,15 +54,15 @@
 
   // const github = document.querySelector(".github").href = "https://www.github.com/komplex01"
 
-  if ( window.innerWidth < 600 && mained != null)
+  if ( window.innerWidth < 600 && mained != null )
   {
     parellax_el.forEach( ( el ) =>
     {
       mained.style.height = "100%";
       el.remove();
     } );
-  } 
-  else if(mained != null)
+  }
+  else if ( mained != null )
   {
     console.log( mained );
     mained.style.minWidth = "500px";
@@ -251,7 +251,6 @@
       } );
 
       let portfolioFilters = select( '#portfolio-flters li', true );
-
       on( 'click', '#portfolio-flters li', function ( e )
       {
         e.preventDefault();
@@ -271,14 +270,21 @@
       }, true );
     }
 
-  } );
-
-  /**
+      /**
    * Initiate portfolio lightbox 
    */
-  const portfolioLightbox = GLightbox( {
-    selector: '.glightbox'
+  const portfolioLightbox = GLightbox();
+  console.log( portfolioLightbox );
+
+  portfolioLightbox.on( 'open', () =>
+  {
+    console.log( "DJSFJNSFJNFJSNF" );
   } );
+
+  } );
+
+
+
 
 
 
