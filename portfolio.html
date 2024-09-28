@@ -13,7 +13,9 @@
   <link href="assets/img/IMG_1968.PNG" type="image/png" rel="icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -25,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 
   <!-- =======================================================
   * Template Name: Kelly
@@ -47,18 +50,19 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="resume.html">Resume</a></li>
           <!-- <li><a href="services.html">Services</a></li> -->
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a class="active" href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
       <div class="header-social-links">
-        <a href="https://www.linkedin.com/in/swati-agrawal-18702920b/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://www.linkedin.com/in/swati-agrawal-18702920b/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
         <a href="https://www.instagram.com/swativity_/" class="instagram"><i class="bi bi-instagram"></i></a>
         <!-- <a href="https://in.pinterest.com/anmolagarwal403/" class="facebook"><i class="bi bi-pinterest"></i></a>
         <a href="https://www.facebook.com/anmolagarwal404" class="facebook"><i class="bi bi-facebook"></i></a> -->
@@ -99,8 +103,10 @@
           </div>
         </div>
 
-        <div class="row portfolio-container gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" id="port-container" >
-        </div>
+        <div id="port-container" class="row">
+          <!-- Portfolio items will be appended here -->
+      </div>
+      
 
       </div>
     </section><!-- End Portfolio Section -->
@@ -147,35 +153,40 @@
 
     <script>
 
-      function appendHtml ( filename, title, subtitle = "", filter )
+      // Function to append HTML with lazy loading for portfolio items
+      function appendPortfolioHtml ( filename, filter )
       {
         var div = document.getElementById( 'port-container' );
-        div.innerHTML += `<div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
+        div.innerHTML += `
+    <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
       <div class="portfolio-wrap">
-        <img src="${ filename }" class="img-fluid" alt="">
+        <img data-src="${ filename }" class="lazyload img-fluid" alt="">
         <div class="portfolio-info">
           <h4></h4>
           <p></p>
           <div class="portfolio-links">
-            <a href="${ filename }" data-gallery="portfolioGallery" class="gightbox" title=""><i class="bi bi-zoom-in"></i></a>
+            <a href="${ filename }" data-gallery="portfolioGallery" class="gightbox" title="">
+              <i class="bi bi-zoom-in"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>`;
       }
 
-      // Load and process the JSON file
+      // Fetch JSON and dynamically create lazy-loaded portfolio items
       fetch( 'file_data.json' )
         .then( response => response.json() )
         .then( data =>
         {
           data.forEach( item =>
           {
-            // console.log( `Filepath: ${ item.filepath }, Tag: ${ item.tag }` );
-            appendHtml(item.filepath, item.title, item.subtitle, item.tag);
+            // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
+            appendPortfolioHtml( item.filepath, item.tag );
           } );
         } )
         .catch( error => console.error( 'Error loading the JSON file:', error ) );
+
 
     </script>
 
