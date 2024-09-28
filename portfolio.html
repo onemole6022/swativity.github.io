@@ -84,15 +84,14 @@
         <div class="section-title">
           <h2>Portfolio</h2>
           <p>
-            Each project is a story of its own, showcasing my passion for turning ideas into interactive realities.
-            Dive in and explore the digital realms I've built, and let's chat about bringing your next big idea to life!
+            Each piece you see here tells a story, blending imagination with technical skill. My portfolio is a reflection of my evolving style, from concept sketches to finished creations. Explore the gallery and witness how I transform ideas into wearable art, capturing essence of modern fashion with every design.
           </p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter="*" class="filter-active" id="filter-all">All</li>
               <li data-filter=".filter-popart">Pop art (Women's Wear)</li>
               <li data-filter=".filter-emojis">Emojis (Women's Wear)</li>
               <li data-filter=".filter-phulkari">Phulkari (Women's Wear)</li>
@@ -156,7 +155,7 @@
       <script>
 
         // Function to append HTML with lazy loading for portfolio items
-        function appendPortfolioHtml ( filename, title, subtitle = "", filter )
+        function appendPortfolioHtml ( filename, placeholder, title, subtitle = "", filter )
         {
           const max_placeholder = 3;
           const numm = Math.floor( Math.random() * max_placeholder ) + 1;
@@ -164,10 +163,10 @@
           div.innerHTML += `
     <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
       <div class="portfolio-wrap">
-        <img src="assets/img/portfolio\\placeholder\\placeholder${numm}.jpg" data-src="${ filename }" class="lazyload img-fluid" alt="">
+        <img src="${ placeholder }" data-src="${ filename }" class="lazyload img-fluid" alt="">
         <div class="portfolio-info">
           <h4></h4>
-          <p></p>
+          <p>#${filter}</p>
           <div class="portfolio-links">
             <a href="${ filename }" data-gallery="${ filter }-gallery" class="glightbox" title="" previewlistener="true">
               <i class="bi bi-zoom-in"></i>
@@ -187,10 +186,19 @@
             data.forEach( item =>
             {
               // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
-              appendPortfolioHtml( item.filepath, item.title, item.subtitle, item.tag );
+              appendPortfolioHtml( item.filepath, item.placeholder, item.title, item.subtitle, item.tag );
+
             } );
-          } )
-          .catch( error => console.error( 'Error loading the JSON file:', error ) );
+          } );
+
+        // document.addEventListener( 'lazyloaded', function ( e )
+        // {
+        //   var filterall = document.getElementsByClassName( 'filter-active' );
+        //   // console.log( filterall[0] );
+        //   filterall[0].click();
+        // } );
+
+
 
 
       </script>

@@ -274,13 +274,7 @@
    * Initiate portfolio lightbox 
    */
   const portfolioLightbox = GLightbox();
-  console.log( portfolioLightbox );
-
-  portfolioLightbox.on( 'open', () =>
-  {
-    console.log( "DJSFJNSFJNFJSNF" );
-  } );
-
+  
   } );
 
 
@@ -354,6 +348,7 @@
       once: true,
       mirror: false
     } );
+
   } );
 
   /**
