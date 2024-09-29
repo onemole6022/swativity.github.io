@@ -226,6 +226,7 @@
     }
   } );
 
+
   /**
    * Preloader
    */
@@ -251,90 +252,96 @@
       } );
 
       let portfolioFilters = select( '#portfolio-flters li', true );
-      on( 'click', '#portfolio-flters li', function ( e )
-      {
-        e.preventDefault();
-        portfolioFilters.forEach( function ( el )
-        {
-          el.classList.remove( 'filter-active' );
-        } );
-        this.classList.add( 'filter-active' );
 
-        portfolioIsotope.arrange( {
-          filter: this.getAttribute( 'data-filter' )
-        } );
-        portfolioIsotope.on( 'arrangeComplete', function ()
+      try
+      {
+        on( 'click', '#portfolio-flters li', function ( e )
         {
-          AOS.refresh();
-        } );
-      }, true );
+          e.preventDefault();
+          portfolioFilters.forEach( function ( el )
+          {
+            el.classList.remove( 'filter-active' );
+          } );
+          this.classList.add( 'filter-active' );
+
+          portfolioIsotope.arrange( {
+            filter: this.getAttribute( 'data-filter' )
+          } );
+          portfolioIsotope.on( 'arrangeComplete', function ()
+          {
+            // document.getElementById("demo").innerHTML = "err.message";
+            AOS.refresh();
+          } );
+        }, true );
+      }
+      catch ( err )
+      {
+        document.getElementById( "demo" ).innerHTML = err.message;
+      }
+
+
     }
 
-      /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox();
-  
-  } );
+    /**
+ * Initiate portfolio lightbox 
+ */
+    const portfolioLightbox = GLightbox();
 
-
-
-
-
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper( '.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  } );
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select( '.skills-content' );
-  if ( skilsContent )
-  {
-    new Waypoint( {
-      element: skilsContent,
-      offset: '80%',
-      handler: function ( direction )
-      {
-        let progress = select( '.progress .progress-bar', true );
-        progress.forEach( ( el ) =>
-        {
-          el.style.width = el.getAttribute( 'aria-valuenow' ) + '%';
-        } );
+    /**
+     * Portfolio details slider
+     */
+    new Swiper( '.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
       }
     } );
-  }
 
-  /**
-   * Testimonials slider
-   */
-  new Swiper( '.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+    /**
+     * Skills animation
+     */
+    let skilsContent = select( '.skills-content' );
+    if ( skilsContent )
+    {
+      new Waypoint( {
+        element: skilsContent,
+        offset: '80%',
+        handler: function ( direction )
+        {
+          let progress = select( '.progress .progress-bar', true );
+          progress.forEach( ( el ) =>
+          {
+            el.style.width = el.getAttribute( 'aria-valuenow' ) + '%';
+          } );
+        }
+      } );
     }
+
+    /**
+     * Testimonials slider
+     */
+    new Swiper( '.testimonials-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    } );
+
   } );
 
   /**

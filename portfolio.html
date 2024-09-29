@@ -11,8 +11,6 @@
 
   <!-- Favicons -->
   <link href="assets/img/IMG_1968.PNG" type="image/png" rel="icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 
   <!-- Google Fonts -->
   <link
@@ -24,13 +22,13 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+
 
   <!-- =======================================================
   * Template Name: Kelly
@@ -84,9 +82,13 @@
         <div class="section-title">
           <h2>Portfolio</h2>
           <p>
-            Each piece you see here tells a story, blending imagination with technical skill. My portfolio is a reflection of my evolving style, from concept sketches to finished creations. Explore the gallery and witness how I transform ideas into wearable art, capturing essence of modern fashion with every design.
+            Each piece you see here tells a story, blending imagination with technical skill. My portfolio is a
+            reflection of my evolving style, from concept sketches to finished creations. Explore the gallery and
+            witness how I transform ideas into wearable art, capturing essence of modern fashion with every design.
           </p>
         </div>
+
+        <p id="demo"></p>
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-12 d-flex justify-content-center">
@@ -108,6 +110,45 @@
         <div id="port-container" class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           <!-- Portfolio items will be appended here -->
         </div>
+
+        <script>
+
+          // Function to append HTML with lazy loading for portfolio items
+          function appendPortfolioHtml ( filename, placeholder, title, subtitle = "", filter )
+          {
+            var div = document.getElementById( 'port-container' );
+            div.innerHTML += `
+      <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
+        <div class="portfolio-wrap">
+          <img src="${ placeholder }" data-src="${ filename }" class="lazyload img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4></h4>
+            <p>#${ filter }</p>
+            <div class="portfolio-links">
+              <a href="${ filename }" data-gallery="${ filter }-gallery" class="glightbox" title="">
+                <i class="bi bi-zoom-in"></i>
+                </a>
+                </div>
+                </div>
+                </div>
+                </div>
+                `;
+          }
+  
+          // Fetch JSON and dynamically create lazy-loaded portfolio items
+           fetch( 'file_data.json' )
+            .then( response => response.json() )
+            .then( data =>
+            {
+              data.forEach( item =>
+              {
+                // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
+                appendPortfolioHtml( item.filepath, item.placeholder, item.title, item.subtitle, item.tag );
+  
+              } );
+            } );
+  
+        </script>
 
 
       </div>
@@ -139,69 +180,22 @@
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
           class="bi bi-arrow-up-short"></i></a>
 
+      
+
       <!-- Vendor JS Files -->
       <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
       <script src="assets/vendor/aos/aos.js"></script>
       <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> -->
+      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
       <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
       <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
       <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/js/jquery.js"></script>
+      <script src="assets/js/lazysizes.min.js"></script>
+
 
       <!-- Template Main JS File -->
       <script src="assets/js/main.js"></script>
-
-      <script>
-
-        // Function to append HTML with lazy loading for portfolio items
-        function appendPortfolioHtml ( filename, placeholder, title, subtitle = "", filter )
-        {
-          const max_placeholder = 3;
-          const numm = Math.floor( Math.random() * max_placeholder ) + 1;
-          var div = document.getElementById( 'port-container' );
-          div.innerHTML += `
-    <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
-      <div class="portfolio-wrap">
-        <img src="${ placeholder }" data-src="${ filename }" class="lazyload img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4></h4>
-          <p>#${filter}</p>
-          <div class="portfolio-links">
-            <a href="${ filename }" data-gallery="${ filter }-gallery" class="glightbox" title="" previewlistener="true">
-              <i class="bi bi-zoom-in"></i>
-              </a>
-              </div>
-              </div>
-              </div>
-              </div>
-              `;
-        }
-
-        // Fetch JSON and dynamically create lazy-loaded portfolio items
-        fetch( 'file_data.json' )
-          .then( response => response.json() )
-          .then( data =>
-          {
-            data.forEach( item =>
-            {
-              // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
-              appendPortfolioHtml( item.filepath, item.placeholder, item.title, item.subtitle, item.tag );
-
-            } );
-          } );
-
-        // document.addEventListener( 'lazyloaded', function ( e )
-        // {
-        //   var filterall = document.getElementsByClassName( 'filter-active' );
-        //   // console.log( filterall[0] );
-        //   filterall[0].click();
-        // } );
-
-
-
-
-      </script>
     </div>
 
 </body>
