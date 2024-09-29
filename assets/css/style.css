@@ -16,12 +16,12 @@ body {
 }
 
 a {
-    color: #34b7a7;
+    color: #c4573c;
     text-decoration: none;
 }
 
 a:hover {
-    color: #51cdbe;
+    color: #a14427;
     text-decoration: none;
 }
 
@@ -38,8 +38,8 @@ h6 {
     /* background: url(../../assets/img/parellax/SUB\ BG.png); */
     width: 100%;
     margin-top: 50px;
-    background-color: #101620;
-    color: rgb(186, 184, 184);
+    background-color: #F4E1D2;
+    color: #292828;
 }
 .main{
     z-index: 2;
@@ -98,7 +98,7 @@ h6 {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #34b7a7;
+    background: #C07d57;
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -112,7 +112,7 @@ h6 {
 }
 
 .back-to-top:hover {
-    background: #49cbbb;
+    background: #84431d;
     color: #fff;
 }
 
@@ -130,7 +130,7 @@ h6 {
 
 #header {
     position: fixed;
-    background-color: #101620;
+    background-color: #68202C;
     box-shadow: 0px 0px 25px 0 rgba(0, 0, 0, 0.08);
     z-index: 997;
     padding: 15px 0;
@@ -147,7 +147,7 @@ h6 {
 }
 
 #header .logo a {
-    color: #867f7f;
+    color: #cacaca;
     font-weight: 600
 }
 
@@ -169,7 +169,7 @@ h6 {
 }
 
 .header-social-links a {
-    color: #6f6f6f;
+    color: #cbcaca;
     padding-left: 6px;
     display: inline-block;
     line-height: 0px;
@@ -178,7 +178,7 @@ h6 {
 }
 
 .header-social-links a:hover {
-    color: #34b7a7;
+    color: #b74c34;
 }
 
 /*--------------------------------------------------------------
@@ -212,7 +212,7 @@ h6 {
     font-family: "Raleway", sans-serif;
     font-size: 15px;
     font-weight: 600;
-    color: #888888;
+    color: #cacaca;
     white-space: nowrap;
     transition: 0.3s;
     position: relative;
@@ -232,7 +232,7 @@ h6 {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #34b7a7;
+    background-color: #b74c34;
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -287,7 +287,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
-    color: #34b7a7;
+    color: #b74c34;
 }
 
 .navbar .dropdown:hover > ul {
@@ -323,7 +323,7 @@ h6 {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-    color: grey;
+    color: #cecece;
     font-size: 28px;
     cursor: pointer;
     display: none;
@@ -372,7 +372,7 @@ h6 {
     left: 15px;
     padding: 10px 0;
     border-radius: 10px;
-    background-color: #464646;
+    background-color: #f4e1d2;
     overflow-y: auto;
     transition: 0.3s;
 }
@@ -381,13 +381,13 @@ h6 {
 .navbar-mobile a:focus {
     font-size: 15px;
     padding-right: 15px;
-    color: #cbcaca;
+    color: #b79b9a;
 }
 
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover > a {
-    color: #34b7a7;
+    color: #c07d57;
 }
 
 .navbar-mobile .getstarted,
@@ -422,7 +422,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {
-    color: #34b7a7;
+    color: #b74c34;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
@@ -460,8 +460,8 @@ h6 {
 .bg-down-space{
     display: flex;
     align-items: center;
-    background-color: #101620;
-    height: 75vw;
+    background-color: #F4E1D2;
+    height: 100vw;
     width: 100%;
 }
 
@@ -547,11 +547,10 @@ h6 {
 }
 
 .mained {
-    background-color: #c5c4ba;
-    position: relative;
-    height: 100vh;
+    background-color: #e9e8e6;
+    /* position: relative; */
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .complete-BG{
@@ -697,9 +696,12 @@ h6 {
     left: calc(50% + 0 / 1.8 * 100% / 1920);
     transform: translate(-50%, -50%);
 
-    font-size: 5rem;
+    font-size: 7vw;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.7);
+    color: white;
+	-webkit-text-stroke: 1px #515151;
+	text-shadow: 2px 2px 10px rgb(0, 0, 0);
+
 }
 
 .lasdf {
@@ -714,9 +716,11 @@ h6 {
     left: calc(50% + 0 / 1.8 * 100% / 1920);
     transform: translate(-50%, -50%);
 
-    font-size: 2rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 6vw;
+    font-weight: 600;
+    color: white;
+	-webkit-text-stroke: 1px #515151;
+	text-shadow: 2px 2px 10px rgb(0, 0, 0);
 }
 
 .parellax {
@@ -737,7 +741,7 @@ h6 {
     }
 }
 
-@media (max-width:1165px) {
+/* @media (max-width:1165px) {
     .parellax-name {
         font-size: 3.1rem;
     }
@@ -756,7 +760,7 @@ h6 {
     .parellax-desc{
         font-size: 1.7rem;;
     }   
-}
+} */
 
 #hero h1 {
     margin: 0;
@@ -836,7 +840,7 @@ section {
 }
 
 .section-title h2 {
-    color: whitesmoke;
+    color: #68202C;
     font-size: 32px;
     font-weight: bold;
     text-transform: uppercase;
@@ -851,7 +855,7 @@ section {
     display: block;
     width: 50px;
     height: 3px;
-    background: #34b7a7;
+    background: #b74c34;
     bottom: 0;
     left: calc(50% - 25px);
 }
@@ -960,7 +964,7 @@ section {
     display: block;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
-    color: white;
+    color: #C07D57;
 }
 
 .img-fluid{
@@ -973,14 +977,14 @@ section {
 }
 
 .skills .progress-bar-wrap {
-    background: #293840;
+    background: #c0b0a5;
 }
 
 .skills .progress-bar {
     width: 1px;
     height: 10px;
     transition: 0.9s;
-    background-color: #34b7a7;
+    background-color: #b74c34;
 }
 
 /*--------------------------------------------------------------
@@ -989,7 +993,7 @@ section {
 .facts .counters span {
     font-size: 48px;
     display: block;
-    color: #34b7a7;
+    color: #c07d57;
 }
 
 .facts .counters p {
@@ -1087,16 +1091,16 @@ section {
 --------------------------------------------------------------*/
 .resume .resume-title {
     font-size: 26px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: whitesmoke;
+    color: #A85365;
 }
 
 .resume .resume-item {
     padding: 0 0 20px 20px;
     margin-top: -2px;
-    border-left: 2px solid #34b7a7;
+    border-left: 2px solid #C07D57;
     position: relative;
 }
 
@@ -1109,7 +1113,7 @@ section {
     font-size: 18px;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
-    color: #49cbbb;
+    color: #C07D57;
     margin-bottom: 10px;
 }
 
@@ -1118,7 +1122,7 @@ section {
     display: inline-block;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #34b7a7;
+    color: #755c5c;
 }
 
 .resume .resume-item ul {
@@ -1142,7 +1146,7 @@ section {
     left: -9px;
     top: 0;
     background: #fff;
-    border: 2px solid #34b7a7;
+    border: 2px solid #A14427;
 }
 
 /*--------------------------------------------------------------
@@ -1295,7 +1299,7 @@ section {
     font-weight: 500;
     line-height: 1;
     text-transform: uppercase;
-    color: #aaaaaa;
+    color: #A85365;
     margin-bottom: 5px;
     transition: all 0.3s ease-in-out;
     border-radius: 50px;
@@ -1304,11 +1308,22 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
     color: #fff;
-    background: #34b7a7;
+    background: #b74c34;
 }
 
 .portfolio #portfolio-flters li:last-child {
     margin-right: 0;
+}
+
+.portfolio-wrap
+{
+    border-radius: 8%;
+    box-shadow:
+      1px 2px 2px #c07d5733,
+      2px 4px 4px #c07d5733,
+      4px 8px 8px #c07d5733,
+      8px 16px 16px #c07d5733,
+      16px 32px 32px #c07d5733;
 }
 
 .portfolio .portfolio-wrap {
@@ -1468,11 +1483,12 @@ section {
 .contact .info {
     width: 100%;
     background: rgba(0,0,0,0);
+    height: 50vh;
 }
 
 .contact .info i {
     font-size: 20px;
-    color: #34b7a7;
+    color: #c07d57;
     float: left;
     width: 44px;
     height: 44px;
@@ -1493,7 +1509,7 @@ section {
     font-size: 18px;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
-    color: #49cbbb;
+    color: #c07d57;
     margin-bottom: 5px;
 }
 
@@ -1501,7 +1517,7 @@ section {
     padding: 0 0 0 60px;
     margin-bottom: 0;
     font-size: 14px;
-    color: #bebebe;
+    color: #755c5c;
 }
 
 .contact .info .email,
@@ -1512,7 +1528,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-    background: #34b7a7;
+    background: #68202C;
     color: #fff;
 }
 
@@ -1613,7 +1629,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: #091e2f;
+    background: #68202c;
     padding: 0;
     color: #222222;
     font-size: 14px;
@@ -1623,7 +1639,7 @@ section {
 #footer .credits {
     padding-top: 5px;
     font-size: 13px;
-    opacity: 0.1;
+    opacity: 0.0;
 }
 
 #footer .credits a {

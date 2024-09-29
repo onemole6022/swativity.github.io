@@ -23,14 +23,14 @@
   {
     if ( window.innerWidth < 600 && mained != null )
     {
-      document.querySelector( ".parellax-name-mob" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
-      document.querySelector( ".parellax-desc-mob" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
-      document.getElementById( "header" ).style.height = `${ Math.max( window.innerWidth * 0.1, 48 ) }px`;
+      // document.querySelector( ".parellax-name-mob" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
+      // document.querySelector( ".parellax-desc-mob" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
+      // document.getElementById( "header" ).style.height = `${ Math.max( window.innerWidth * 0.1, 48 ) }px`;
 
     } else if ( mained != null )
     {
-      document.querySelector( ".parellax-name" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
-      document.querySelector( ".parellax-desc" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
+      // document.querySelector( ".parellax-name" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
+      // document.querySelector( ".parellax-desc" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
     }
   };
 
@@ -39,13 +39,13 @@
   {
     if ( window.innerWidth < 600 && mained != null )
     {
-      document.querySelector( ".parellax-name-mob" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
-      document.querySelector( ".parellax-desc-mob" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
-      document.getElementById( "header" ).style.height = `${ Math.max( window.innerWidth * 0.1, 48 ) }px`;
+      // document.querySelector( ".parellax-name-mob" ).style.fontSize = `${ window.innerWidth * 0.006 }rem`;
+      // document.querySelector( ".parellax-desc-mob" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
+      // document.getElementById( "header" ).style.height = `${ Math.max( window.innerWidth * 0.1, 48 ) }px`;
     } else if ( mained != null )
     {
-      document.querySelector( ".parellax-name" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
-      document.querySelector( ".parellax-desc" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
+      // document.querySelector( ".parellax-name" ).style.fontSize = `${ window.innerWidth * 0.003 }rem`;
+      // document.querySelector( ".parellax-desc" ).style.fontSize = `${ window.innerWidth * 0.002 }rem`;
     }
   } );
 
@@ -58,40 +58,40 @@
   {
     parellax_el.forEach( ( el ) =>
     {
-      mained.style.height = "100%";
+      // mained.style.height = "100%";
       el.remove();
     } );
   }
   else if ( mained != null )
   {
-    console.log( mained );
+    // console.log( mained );
     mained.style.minWidth = "500px";
     document.querySelector( ".bg-down" ).style.minWidth = "500px";
     normal.forEach( ( el ) =>
     {
-      mained.style.height = "100vh";
+      // mained.style.height = "100vh";
       el.remove();
     } );
   }
 
-  window.addEventListener( "mousemove", ( e ) =>
-  {
-    if ( window.innerWidth > 600 )
-    {
-      xVal = e.clientX - window.innerWidth / 2;
-      yVal = e.clientY - window.innerHeight / 2;
+  // window.addEventListener( "mousemove", ( e ) =>
+  // {
+  //   if ( window.innerWidth > 600 )
+  //   {
+  //     xVal = e.clientX - window.innerWidth / 2;
+  //     yVal = e.clientY - window.innerHeight / 2;
 
-      parellax_el.forEach( ( el ) =>
-      {
-        let isleft = parseFloat( getComputedStyle( el ).left ) < window.innerWidth / 2 ? 1 : -1;
-        let zVal = ( e.clientX - ( parseFloat( getComputedStyle( el ).left ) ) ) * isleft;
-        let speedx = el.dataset.speedx;
-        let speedy = el.dataset.speedx * window.innerHeight / window.innerWidth;
-        let sppedz = el.dataset.speedz;
-        el.style.transform = `translateX(calc(-50% + ${ -xVal * speedx }px)) translateY(calc(-50% + ${ yVal * speedy }px)) perspective(1000px) translateZ(${ zVal * 0.01 }px)`;
-      } );
-    };
-  } );
+  //     parellax_el.forEach( ( el ) =>
+  //     {
+  //       let isleft = parseFloat( getComputedStyle( el ).left ) < window.innerWidth / 2 ? 1 : -1;
+  //       let zVal = ( e.clientX - ( parseFloat( getComputedStyle( el ).left ) ) ) * isleft;
+  //       let speedx = el.dataset.speedx;
+  //       let speedy = el.dataset.speedx * window.innerHeight / window.innerWidth;
+  //       let sppedz = el.dataset.speedz;
+  //       el.style.transform = `translateX(calc(-50% + ${ -xVal * speedx }px)) translateY(calc(-50% + ${ yVal * speedy }px)) perspective(1000px) translateZ(${ zVal * 0.01 }px)`;
+  //     } );
+  //   };
+  // } );
 
   /**
    * Easy selector helper function

@@ -90,7 +90,7 @@
 
         <p id="demo"></p>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="200">
+        <div class="row" data-aos="fade-up">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active" id="filter-all">All</li>
@@ -107,7 +107,7 @@
           </div>
         </div>
 
-        <div id="port-container" class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <div id="port-container" class="row portfolio-container" data-aos="fade-up">
           <!-- Portfolio items will be appended here -->
         </div>
 
@@ -120,7 +120,7 @@
             div.innerHTML += `
       <div class="col-lg-3 col-md-3 col-sm-3 portfolio-item filter-${ filter }">
         <div class="portfolio-wrap">
-          <img src="${ placeholder }" data-src="${ filename }" class="lazyload img-fluid" alt="">
+          <img src="${ placeholder }" data-src="${ filename }" class="lazyload img-fluid" alt="" >
           <div class="portfolio-info">
             <h4></h4>
             <p>#${ filter }</p>
@@ -134,9 +134,9 @@
                 </div>
                 `;
           }
-  
+
           // Fetch JSON and dynamically create lazy-loaded portfolio items
-           fetch( 'file_data.json' )
+          fetch( 'file_data.json' )
             .then( response => response.json() )
             .then( data =>
             {
@@ -144,10 +144,10 @@
               {
                 // Assuming 'item.filepath' is the image URL and 'item.tag' is the filter class
                 appendPortfolioHtml( item.filepath, item.placeholder, item.title, item.subtitle, item.tag );
-  
+
               } );
             } );
-  
+
         </script>
 
 
@@ -156,10 +156,10 @@
 
   </main><!-- End #main -->
 
-  <div class="bg-down">
+  <!-- <div class="bg-down">
     <div style="height: 0px;" class="bg-down-space"></div>
     <img src="./assets/img/parellax/BG-down.png">
-  </div>
+  </div> -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -180,7 +180,7 @@
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
           class="bi bi-arrow-up-short"></i></a>
 
-      
+
 
       <!-- Vendor JS Files -->
       <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
